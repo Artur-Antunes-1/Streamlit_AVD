@@ -1,0 +1,16 @@
+{
+  "url": "http://127.0.0.1:8501",
+  "isolated_context": true,
+  "checks": [
+    "Sessão isolada sem cookies: aplicação abriu sem autenticação",
+    "Laboratório: mapa, seis histogramas e dispersão carregados",
+    "Filtro lateral: Com evento seleciona 78 registros e atualiza gestão",
+    "Restauração: 911 registros e intensidade ponderada de 119,5 g/refeição",
+    "Meta exploratória: slider atualiza o percentual e retorna ao valor inicial",
+    "Comparação de categorias: alternância entre kg total e g/refeição",
+    "Download: CSV mensal agregado recebido",
+    "Metodologia e limitações disponíveis na interface",
+    "Tela estreita: conteúdo gerencial permanece disponível"
+  ],
+  "page_errors": []
+}
