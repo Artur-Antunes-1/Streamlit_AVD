@@ -1,6 +1,6 @@
 # Relatório de verificação — Mesa Clara
 
-Verificação local executada em **29/10/2026**, com Python 3.12, Streamlit 1.50.0, pandas 2.2.3 e Plotly 6.3.1. A tentativa de acesso à publicação em **31/10/2026** está registrada separadamente abaixo.
+Verificação local executada em **29/10/2026**, com Python 3.12, Streamlit 1.50.0, pandas 2.2.3 e Plotly 6.3.1. A verificação da publicação em **31/10/2026** está registrada separadamente abaixo.
 
 ## Fluxo verificado
 
@@ -30,6 +30,8 @@ python -m pytest -q
 
 São seis casos de dados/métricas e sete de integração do Streamlit. O teste de navegador é separado e foi concluído com `page_errors: []`. Seu resultado estruturado está em [resultado.json](resultado.json); o script reproduzível é [scripts/test_browser.py](../scripts/test_browser.py).
 
+Em 31/10/2026, após ajustar a restauração dos filtros, os **13 testes foram repetidos e passaram**. A configuração `pytest.ini` limita a descoberta aos testes do projeto em `tests/`, sem executar scripts temporários de inspeção.
+
 Capturas reais do teste local:
 
 - [Laboratório](dashboard1_desktop.png)
@@ -37,27 +39,54 @@ Capturas reais do teste local:
 - [Gestão — gráficos](dashboard2_graficos.png)
 - [Gestão — tela estreita](dashboard2_mobile.png)
 
-## Acesso à publicação — 31/10/2026
+## Publicação — 31/10/2026
 
 Endereço informado pelo autor: <https://arturantunes.streamlit.app/>. O link foi incluído no README.
 
-O Chromium foi aberto em contexto isolado, sem cookies ou autenticação. O endereço redirecionou para `https://share.streamlit.io/app/arturantunes/`, com título **Not found · Streamlit**, e exibiu:
+Na primeira tentativa, o Chromium foi aberto em contexto isolado, sem cookies ou autenticação. O endereço redirecionou para `https://share.streamlit.io/app/arturantunes/`, com título **Not found · Streamlit**, e exibiu:
 
 ```text
 You do not have access to this app or it does not exist
 Please sign in to continue.
 ```
 
-Essa resposta impede confirmar os dashboards e os widgets no endereço publicado. O status HTTP 200 da página de acesso não comprova carregamento do app. O aviso pode decorrer de acesso privado ou de endereço indisponível; não comprova erro no código ou no deploy.
+O autor alterou o compartilhamento para público e o teste foi repetido em uma nova sessão isolada. **O app passou a carregar sem autenticação.** O aviso inicial não foi tratado como erro de código ou de deploy.
 
-Evidências: [captura do acesso sem login](publicacao-acesso.png) e [resultado estruturado](resultado-publicacao.json).
+Evidências da tentativa inicial: [captura da página de acesso](publicacao-acesso.png) e [resultado inicial](resultado-publicacao-acesso-inicial.json).
 
-Para liberar acesso sem alterar a visibilidade do repositório: no painel do Streamlit, abrir **⋮ → Settings → Sharing → Who can view this app → This app is public and searchable**. O proprietário também pode abrir o app e usar **Share → Make this app public**, se essa opção estiver disponível. Depois, repetir o teste em sessão anônima.
+### Resultado após liberar o acesso público
+
+O teste automatizado final no Chromium foi concluído com **11 verificações aprovadas e nenhum erro de JavaScript**:
+
+- Acesso sem login, duas abas, 11 gráficos padrão e cinco indicadores.
+- Filtro “Com evento” selecionando 78 registros; restauração recuperando os 911 registros e 119,5 g/refeição.
+- Meta de 150 para 155 g/refeição alterando o percentual acima da meta de 39,5% para 36,6%, com retorno ao valor inicial.
+- Alternância das barras entre volume total e intensidade por refeição.
+- Download do CSV mensal agregado e consulta da metodologia.
+- Consulta da tabela de estatísticas descritivas do laboratório.
+- Remoção de uma quantitativa e restauração das seis seleções visíveis, com matriz 6 × 6 e 11 gráficos novamente.
+- Conteúdo gerencial disponível em tela estreita de 390 × 844.
+
+Na checagem complementar, foram alterados o método Pearson/Spearman, as classes dos histogramas, os dois eixos da dispersão, a seleção de quantitativas, a variável e o intervalo numérico, o período e as categorias. As respostas dos gráficos e indicadores foram conferidas: o limite superior de refeições excluiu o maior registro e retornou 910 registros e 337.264 refeições; período até 25/09/2024 combinado com remoção de Vegetais retornou 734 registros e 272.972 refeições.
+
+A verificação identificou uma divergência na restauração: a seleção visível podia permanecer com cinco variáveis, enquanto a matriz já avaliava seis. O botão passou a atribuir explicitamente os padrões aos controles. A correção foi confirmada no navegador local e depois no app público, comparando as seis seleções visíveis com a matriz 6 × 6.
+
+O recorte vazio também foi conferido na publicação: limpar as categorias retornou zero registros, orientações nas duas abas e nenhum gráfico ou indicador. Após restaurar, reapareceram os 911 registros, as seis variáveis e quatro categorias selecionadas, os cinco indicadores e os 11 gráficos. O CSV baixado continha somente cinco colunas agregadas, sem IDs, e reconciliou os 911 registros.
+
+O script [scripts/test_browser.py](../scripts/test_browser.py) foi ajustado para localizar o app tanto na página principal local quanto no iframe usado pelo Community Cloud.
+
+Evidências da publicação:
+
+- [Resultado estruturado](resultado-publicacao.json)
+- [Verificação complementar dos widgets](resultado-widgets-publicacao.json)
+- [Laboratório](publicacao-dashboard1.png)
+- [Gestão — indicadores](publicacao-dashboard2.png)
+- [Gestão — gráficos](publicacao-graficos.png)
+- [Gestão — tela estreita](publicacao-mobile.png)
 
 ## Pendências externas
 
 - O repositório de destino é [Artur-Antunes-1/Streamlit_AVD](https://github.com/Artur-Antunes-1/Streamlit_AVD), **privado por solicitação do autor**. A entrega acadêmica pede visibilidade pública.
-- Confirmar o endereço e liberar o acesso público ao app no Streamlit Community Cloud.
-- Repetir os testes dos dashboards e widgets no endereço publicado em sessão anônima. O teste automatizado aceita `--url https://arturantunes.streamlit.app/`.
+- Revisão humana das interpretações e preparação da entrega final.
 
-Os testes locais não foram apresentados como evidência de funcionamento público. A configuração do provedor e os logs da versão publicada não estavam disponíveis nesta verificação.
+Os resultados locais e os da publicação estão separados neste relatório. A configuração interna do provedor e seus logs não foram inspecionados; o fluxo público foi conferido diretamente no navegador.

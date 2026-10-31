@@ -1,0 +1,41 @@
+{
+  "checked_at_utc": "2026-10-31T21:27:49.099760+00:00",
+  "requested_url": "https://arturantunes.streamlit.app/",
+  "observed_url": "https://share.streamlit.io/app/arturantunes/",
+  "isolated_context": true,
+  "http_status": 200,
+  "page_title": "Not found · Streamlit",
+  "access_result": "blocked_before_app",
+  "evidence_text": "Explore\nDiscuss\nSign in\nSign up\nYou do not have access to this app or it does not exist\n\nPlease sign in to continue.\n\nIf you believe this is a bug, contact support.",
+  "passed_checks": [
+    "Public URL requested in an isolated Chromium context without login or persistent cookies.",
+    "Initial access page captured."
+  ],
+  "blocked_checks": [
+    "Laboratory dashboard load",
+    "Management dashboard load",
+    "Tab switching",
+    "Quantitative variable selector",
+    "Numeric interval variable selector",
+    "Numeric range slider",
+    "Date range slider",
+    "Food categories multiselect",
+    "Special event radio",
+    "Correlation method radio",
+    "Histogram bins slider",
+    "Scatter X and Y selectors",
+    "Exploratory target slider",
+    "Category chart metric radio",
+    "Reset filters button",
+    "Monthly CSV download",
+    "Data/privacy review in rendered app"
+  ],
+  "reason": "The public URL redirects to a Streamlit access/not-found page asking the visitor to sign in. This does not distinguish a private app from an unavailable/mistyped deployment.",
+  "artifacts": [
+    "publicacao-acesso.png"
+  ],
+  "auth_bypass_attempted": false,
+  "remote_mutations": false,
+  "existing_test_exit_code": 1,
+  "existing_test_failure": "First app heading assertion timed out at 60000ms; no app content loaded."
+}

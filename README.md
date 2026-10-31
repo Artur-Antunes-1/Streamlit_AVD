@@ -4,7 +4,7 @@ Aplicação Streamlit desenvolvida a partir da EDA do **Messy Food Waste Predict
 
 **App publicado:** [arturantunes.streamlit.app](https://arturantunes.streamlit.app/)
 
-**Acesso externo:** no teste sem login em 31/10/2026, o endereço exibiu a página do Streamlit informando falta de acesso ou app inexistente. A conferência dos dashboards na publicação depende de liberar o acesso público ou corrigir o endereço.
+**Acesso público:** verificado em 31/10/2026 em sessão sem login. As duas abas, os gráficos, os indicadores, os controles de análise, a restauração dos filtros e o download do resumo mensal responderam na publicação.
 
 **Repositório:** [Artur-Antunes-1/Streamlit_AVD](https://github.com/Artur-Antunes-1/Streamlit_AVD). Mantido **privado** por solicitação do autor; a visibilidade pública exigida na entrega final permanece pendente.
 
@@ -13,7 +13,7 @@ Aplicação Streamlit desenvolvida a partir da EDA do **Messy Food Waste Predict
 - **Laboratório:** mapa de correlação Pearson/Spearman, seis histogramas inicialmente selecionados, dispersão interativa e estatísticas descritivas.
 - **Gestão:** cinco KPIs e três visuais: evolução mensal de g/refeição, barras por categoria e boxplot por evento.
 - **Painel lateral:** seleção de quantitativas, variável de filtro, intervalo numérico, período, categorias, evento e restauração dos filtros.
-- **Entregas:** dois rascunhos em SVG/JPG, planejamento, justificativas das métricas e relatório de verificação local e da tentativa de acesso à publicação.
+- **Entregas:** dois rascunhos em SVG/JPG, planejamento, justificativas das métricas e relatório com evidências de testes locais e da publicação.
 - **Reprodução:** notebook original com seção de exportação acrescentada, CSV original e tratado, testes dos dados, widgets e navegador.
 
 ## Executar localmente
@@ -58,6 +58,7 @@ As justificativas completas estão em [entregas/justificativa-metricas.md](entre
 ├── requirements.txt
 ├── requirements-dev.txt
 ├── requirements-eda.txt
+├── pytest.ini
 ├── .streamlit/config.toml
 ├── data/
 │   ├── train.csv
@@ -102,7 +103,7 @@ python scripts/test_browser.py --url https://arturantunes.streamlit.app/ --outpu
 # Se o Chromium já estiver instalado, acrescente --chromium /caminho/do/chromium
 ```
 
-O teste de navegador cria um contexto isolado, sem sessão persistida. As evidências e o escopo efetivamente executado estão em [entregas/relatorio-testes.md](entregas/relatorio-testes.md). **Testes locais não comprovam o funcionamento de uma publicação.**
+O teste de navegador cria um contexto isolado, sem sessão persistida, e funciona tanto localmente quanto na publicação do Community Cloud. As evidências e o escopo efetivamente executado estão em [entregas/relatorio-testes.md](entregas/relatorio-testes.md).
 
 ## Publicar e concluir a entrega
 
@@ -118,11 +119,11 @@ Se o app apresentar `ModuleNotFoundError`, confira `requirements.txt` e Python 3
 
 - [ ] Repositório público acessível sem login, contendo notebook, dados, código e `entregas/`.
 - [x] Endereço real do app adicionado no início deste README.
-- [ ] App publicado aberto em janela anônima, sem autenticação.
-- [ ] Duas abas carregadas com gráficos e métricas.
-- [ ] Todos os widgets alterados e resposta dos gráficos/indicadores conferida.
-- [ ] Seleções vazias e restauração dos filtros conferidas.
-- [ ] Download do resumo mensal conferido.
-- [ ] Ausência de informações pessoais, segredos e credenciais conferida na publicação e no repositório.
+- [x] App publicado aberto em sessão isolada, sem autenticação.
+- [x] Duas abas carregadas com gráficos e métricas.
+- [x] Todos os widgets alterados e resposta dos gráficos/indicadores conferida.
+- [x] Seleções vazias e restauração dos filtros conferidas.
+- [x] Download do resumo mensal conferido.
+- [x] Inspeção do repositório e da interface sem indícios de informações pessoais, segredos ou credenciais expostos.
 - [x] Dois rascunhos presentes em `entregas/`, com métricas justificadas.
 - [ ] Revisão humana do público e das interpretações concluída.

@@ -1,0 +1,88 @@
+{
+  "url": "https://arturantunes.streamlit.app/",
+  "checked_at_utc": "2026-10-31T21:38:16.418457+00:00",
+  "status": "passed",
+  "isolated_context": true,
+  "public_core_checks": [
+    "Sessão isolada sem cookies: aplicação abriu sem autenticação",
+    "Laboratório: mapa, seis histogramas e dispersão carregados",
+    "Restauração das variáveis: seis seleções visíveis e matriz 6 × 6 após remover uma variável",
+    "Estatísticas descritivas: expansor abre a tabela do recorte",
+    "Filtro lateral: Com evento seleciona 78 registros e atualiza gestão",
+    "Restauração: 911 registros e intensidade ponderada de 119,5 g/refeição",
+    "Meta exploratória: slider atualiza o percentual e retorna ao valor inicial",
+    "Comparação de categorias: alternância entre kg total e g/refeição",
+    "Download: CSV mensal agregado recebido",
+    "Metodologia e limitações disponíveis na interface",
+    "Tela estreita: conteúdo gerencial permanece disponível"
+  ],
+  "public_supplemental_checks": [
+    {
+      "widget": "Método de correlação",
+      "evidence": "Pearson selecionado e título do coeficiente na matriz muda para r; Spearman restaurado."
+    },
+    {
+      "widget": "Classes do histograma",
+      "evidence": "25→26 no controle; todos os 6 histogramas recebem nbinsx=26."
+    },
+    {
+      "widget": "Eixos X e Y da dispersão",
+      "evidence": "Seletores alteram os títulos e variáveis do gráfico para desperdício anterior × temperatura."
+    },
+    {
+      "widget": "Variável e slider do intervalo",
+      "evidence": "Refeições selecionada; limite superior reduzido de 4730, excluindo 1 registro extremo;910 registros e 337.264 refeições no painel gerencial."
+    },
+    {
+      "widget": "Período dos registros",
+      "evidence": "Data final 26→25/09/2024:910 de 911 registros."
+    },
+    {
+      "widget": "Categorias de alimento",
+      "evidence": "Remoção de Vegetais combinada com data final 25/09/2024:734 registros e 272.972 refeições nos KPIs."
+    }
+  ],
+  "supplemental_timing": "Controles complementares verificados antes do ajuste de restauração; suíte principal e seleção vazia repetidas na publicação corrigida.",
+  "reset_fix_regression": {
+    "status": "passed",
+    "visible_selected_variables_after_restore": 6,
+    "actual_heatmap_dimensions": [
+      6,
+      6
+    ],
+    "charts_after_restore": 11
+  },
+  "download_check": {
+    "columns": [
+      "Mês",
+      "Desperdício (kg)",
+      "Refeições",
+      "g/refeição",
+      "Registros"
+    ],
+    "aggregate_records": 911,
+    "contains_record_identifier_column": false
+  },
+  "page_errors": [],
+  "unexpected_app_exceptions": 0,
+  "browser_script_sha256": "732c432dd4d7c330a53b0b4c92664cbff32cc326ba5d9093da21b0a5a72b51be",
+  "evidence": {
+    "core_report": "resultado-publicacao.json",
+    "main_dashboards_screenshots": [
+      "publicacao-dashboard1.png",
+      "publicacao-dashboard2.png",
+      "publicacao-graficos.png",
+      "publicacao-mobile.png"
+    ],
+    "download": "resumo-mensal-publicacao.csv",
+    "initial_access_report": "resultado-publicacao-acesso-inicial.json",
+    "initial_access_screenshot": "publicacao-acesso.png"
+  },
+  "remote_mutations": false,
+  "persistent_authentication_used": false,
+  "public_final_empty_selection_checks": [
+    "Clear all categories selects0records; both tabs show empty-selection guidance;0metrics and0charts.",
+    "Restore returns911records,6visible quantitative tags,4visible category tags,5metrics and11charts."
+  ],
+  "deployment_commit": "f01086093b9ca24127a9e584e2fd1a6b438bcecd"
+}
