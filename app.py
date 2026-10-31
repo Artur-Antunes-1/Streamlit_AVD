@@ -54,10 +54,24 @@ def chart(fig, key):
     st.plotly_chart(fig, use_container_width=True, key=key, config={"displaylogo": False})
 
 
+def filter_defaults(data):
+    defaults = {
+        "filter_variables": QUANT.copy(),
+        "filter_range_variable": "food_waste_kg",
+        "filter_dates": (data.date.min().date(), data.date.max().date()),
+        "filter_categories": sorted(data.alimento_label.unique()),
+        "filter_event": "Todos",
+    }
+    for variable in QUANT:
+        defaults[f"filter_interval_{variable}"] = (
+            float(data[variable].min()), float(data[variable].max()),
+        )
+    return defaults
+
+
 def reset_filters():
-    for key in list(st.session_state):
-        if key.startswith("filter_"):
-            del st.session_state[key]
+    # Atribuir os padrões também sincroniza os valores exibidos nos widgets.
+    st.session_state.update(filter_defaults(get_data()))
 
 
 def laboratory(data, variables):
@@ -192,23 +206,25 @@ def main():
     except (OSError, ValueError):
         st.error("Não foi possível carregar a base local. Confira data/train.csv e as instruções do README.")
         st.stop()
+    for key, value in filter_defaults(data).items():
+        st.session_state.setdefault(key, value)
     with st.sidebar:
         st.markdown("### 🌿 Mesa Clara")
         st.caption("DESPERDÍCIO ALIMENTAR · EDA")
         st.markdown("#### Seu recorte")
         st.button("Restaurar filtros", on_click=reset_filters, width="stretch")
-        variables = st.multiselect("Variáveis quantitativas avaliadas", QUANT, default=QUANT,
+        variables = st.multiselect("Variáveis quantitativas avaliadas", QUANT,
                                    format_func=LABELS.get, key="filter_variables")
-        variable = st.selectbox("Variável do filtro de intervalo", QUANT, index=5,
+        variable = st.selectbox("Variável do filtro de intervalo", QUANT, index=None,
                                 format_func=LABELS.get, key="filter_range_variable")
         low, high = float(data[variable].min()), float(data[variable].max())
-        interval = st.slider("Intervalo incluído na análise", low, high, (low, high),
+        interval = st.slider("Intervalo incluído na análise", low, high,
                              key=f"filter_interval_{variable}", format="%.2f")
         date_min, date_max = data.date.min().date(), data.date.max().date()
-        dates = st.slider("Período dos registros", date_min, date_max, (date_min, date_max),
+        dates = st.slider("Período dos registros", date_min, date_max,
                           format="DD/MM/YYYY", key="filter_dates")
         categories = st.multiselect("Categorias de alimento", sorted(data.alimento_label.unique()),
-                                     default=sorted(data.alimento_label.unique()), key="filter_categories")
+                                     key="filter_categories")
         event = st.radio("Evento especial", ["Todos", "Sem evento", "Com evento"], key="filter_event")
         st.caption("Extremos são mantidos por padrão. Ajuste o intervalo para investigar sua influência.")
 

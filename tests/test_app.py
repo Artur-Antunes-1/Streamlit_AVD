@@ -91,6 +91,7 @@ def test_sidebar_numeric_range_changes_both_dashboards(app):
 
 
 def test_sidebar_date_category_and_event_filters_combine_then_reset(app):
+    app.multiselect(key="filter_variables").set_value(["food_waste_kg"])
     app.slider(key="filter_dates").set_value((date(2023, 1, 1), date(2023, 12, 31)))
     app.multiselect(key="filter_categories").set_value(["Carne"])
     app.radio(key="filter_event").set_value("Com evento")
@@ -108,6 +109,9 @@ def test_sidebar_date_category_and_event_filters_combine_then_reset(app):
     assert len(values(chart(app, "hist_food_waste_kg")["data"][0]["x"])) == 911
     assert app.radio(key="filter_event").value == "Todos"
     assert len(app.multiselect(key="filter_categories").value) == 4
+    assert app.multiselect(key="filter_variables").value == QUANT
+    assert app.selectbox(key="filter_range_variable").value == "food_waste_kg"
+    assert app.slider(key="filter_dates").value == (date(2022, 1, 1), date(2024, 9, 26))
 
 
 def test_management_goal_and_category_mode_change_their_outputs(app):
