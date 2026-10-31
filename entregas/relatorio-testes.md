@@ -86,7 +86,7 @@ Evidências da publicação:
 
 ## Pendências externas
 
-- O repositório de destino é [Artur-Antunes-1/Streamlit_AVD](https://github.com/Artur-Antunes-1/Streamlit_AVD), **privado por solicitação do autor**. A entrega acadêmica pede visibilidade pública.
+- O repositório [Artur-Antunes-1/Streamlit_AVD](https://github.com/Artur-Antunes-1/Streamlit_AVD) foi tornado **público** pelo autor em 31/10/2026. A consulta à API do GitHub sem cabeçalho de autenticação retornou HTTP 200, `private: false` e `visibility: public`.
 - Revisão humana das interpretações e preparação da entrega final.
 
 Os resultados locais e os da publicação estão separados neste relatório. A configuração interna do provedor e seus logs não foram inspecionados; o fluxo público foi conferido diretamente no navegador.

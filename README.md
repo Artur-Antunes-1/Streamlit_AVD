@@ -8,7 +8,7 @@ Aplicação Streamlit desenvolvida a partir da EDA do **Messy Food Waste Predict
 
 **Acesso público:** verificado em 31/10/2026 em sessão sem login. As duas abas, os gráficos, os indicadores, os controles de análise, a restauração dos filtros e o download do resumo mensal responderam na publicação.
 
-**Repositório:** [Artur-Antunes-1/Streamlit_AVD](https://github.com/Artur-Antunes-1/Streamlit_AVD). Mantido **privado** por solicitação do autor; a visibilidade pública exigida na entrega final permanece pendente.
+**Repositório:** [Artur-Antunes-1/Streamlit_AVD](https://github.com/Artur-Antunes-1/Streamlit_AVD). **Público**, com acesso sem autenticação confirmado em 31/10/2026.
 
 ## O que está pronto
 
@@ -110,17 +110,17 @@ O teste de navegador cria um contexto isolado, sem sessão persistida, e funcion
 
 ## Publicar e concluir a entrega
 
-1. O projeto está preparado para o repositório [Streamlit_AVD](https://github.com/Artur-Antunes-1/Streamlit_AVD), mantido privado por enquanto. Para a entrega final, altere a visibilidade para **público** nas configurações do GitHub. Ao enviar os arquivos, inclua os arquivos ocultos de configuração. `app.py` e `requirements.txt` devem ficar na raiz. Não envie o ZIP como único arquivo. Não inclua `.venv/`, caches, `.env` ou `secrets.toml`.
+1. O projeto está no repositório público [Streamlit_AVD](https://github.com/Artur-Antunes-1/Streamlit_AVD), com acesso sem login conferido. Ao enviar os arquivos, inclua os arquivos ocultos de configuração. `app.py` e `requirements.txt` devem ficar na raiz. Não envie o ZIP como único arquivo. Não inclua `.venv/`, caches, `.env` ou `secrets.toml`.
 2. Acesse <https://streamlit.io/cloud> com a conta associada ao GitHub. Escolha **Create app → Deploy a public app from GitHub**.
 3. Selecione o repositório, a branch `main` e **Main file path: `app.py`**. Nas configurações avançadas, escolha **Python 3.12**. Publique o app com acesso público.
-4. O endereço desta publicação está registrado no início deste README: <https://arturantunes.streamlit.app/>. Confira a visibilidade do repositório antes da entrega final.
+4. O endereço desta publicação está registrado no início deste README: <https://arturantunes.streamlit.app/>. A visibilidade pública do repositório também foi confirmada.
 5. Abra o endereço publicado em uma janela anônima, execute o checklist abaixo e registre os resultados. O teste automatizado também aceita `--url https://arturantunes.streamlit.app/`.
 
 Se o app apresentar `ModuleNotFoundError`, confira `requirements.txt` e Python 3.12. Se o CSV não for encontrado, confirme que `data/train.csv` foi enviado e que o caminho principal é `app.py`. Uma hibernação do plano gratuito pode exigir aguardar a inicialização.
 
 ### Checklist da entrega
 
-- [ ] Repositório público acessível sem login, contendo notebook, dados, código e `entregas/`.
+- [x] Repositório público acessível sem login, contendo notebook, dados, código, `entregas/` e `prompts/`.
 - [x] Endereço real do app adicionado no início deste README.
 - [x] App publicado aberto em sessão isolada, sem autenticação.
 - [x] Duas abas carregadas com gráficos e métricas.
