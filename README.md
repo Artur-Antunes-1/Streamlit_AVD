@@ -4,6 +4,8 @@ Aplicação Streamlit desenvolvida a partir da EDA do **Messy Food Waste Predict
 
 **App publicado:** [arturantunes.streamlit.app](https://arturantunes.streamlit.app/)
 
+**Declaração assinada:** [DECLARACAO_IA.pdf](prompts/DECLARACAO_IA.pdf), conforme o modelo da atividade. O arquivo enviado pelo autor foi preservado integralmente.
+
 **Acesso público:** verificado em 31/10/2026 em sessão sem login. As duas abas, os gráficos, os indicadores, os controles de análise, a restauração dos filtros e o download do resumo mensal responderam na publicação.
 
 **Repositório:** [Artur-Antunes-1/Streamlit_AVD](https://github.com/Artur-Antunes-1/Streamlit_AVD). Mantido **privado** por solicitação do autor; a visibilidade pública exigida na entrega final permanece pendente.
@@ -65,6 +67,7 @@ As justificativas completas estão em [entregas/justificativa-metricas.md](entre
 │   ├── eda_tratada.csv
 │   └── README.md
 ├── notebooks/01_eda_original.ipynb
+├── prompts/DECLARACAO_IA.pdf
 ├── entregas/
 │   ├── rascunho-dashboard1.jpg
 │   ├── rascunho-dashboard2.jpg
@@ -124,6 +127,8 @@ Se o app apresentar `ModuleNotFoundError`, confira `requirements.txt` e Python 3
 - [x] Todos os widgets alterados e resposta dos gráficos/indicadores conferida.
 - [x] Seleções vazias e restauração dos filtros conferidas.
 - [x] Download do resumo mensal conferido.
-- [x] Inspeção do repositório e da interface sem indícios de informações pessoais, segredos ou credenciais expostos.
+- [x] Dados operacionais, interface e código conferidos quanto a informações sensíveis e credenciais. A declaração contém a identificação do autor exigida pelo formulário.
 - [x] Dois rascunhos presentes em `entregas/`, com métricas justificadas.
+- [x] Declaração assinada incluída em `prompts/DECLARACAO_IA.pdf`.
+- [x] Código produzido com apoio de IA identificado por comentários `# [IA]`.
 - [ ] Revisão humana do público e das interpretações concluída.

@@ -1,3 +1,4 @@
+# [IA] ChatGPT/Codex – implementação deste arquivo: testes de integração dos dashboards.
 """Integração dos widgets com os dois painéis usando o runtime do Streamlit."""
 import base64
 from datetime import date

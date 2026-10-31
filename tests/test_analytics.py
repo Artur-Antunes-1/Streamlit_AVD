@@ -1,3 +1,4 @@
+# [IA] ChatGPT/Codex – implementação deste arquivo: testes dos dados, filtros e métricas.
 """Regressões da EDA e dos denominadores usados nos painéis."""
 
 from datetime import date

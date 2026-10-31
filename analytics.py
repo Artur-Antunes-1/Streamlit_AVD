@@ -1,3 +1,4 @@
+# [IA] ChatGPT/Codex – implementação deste arquivo: tratamento, filtros e cálculos a partir da EDA fornecida.
 """Transformações e métricas reproduzíveis da EDA de desperdício alimentar."""
 
 from pathlib import Path

@@ -1,3 +1,4 @@
+# [IA] ChatGPT/Codex – implementação deste arquivo: interface, filtros, gráficos e indicadores.
 """Dois dashboards de desperdício alimentar, baseados na EDA da atividade."""
 from pathlib import Path
 

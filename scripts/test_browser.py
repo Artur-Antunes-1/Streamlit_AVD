@@ -1,3 +1,4 @@
+# [IA] ChatGPT/Codex – implementação deste arquivo: testes de navegador, widgets e publicação.
 """Verificação real em contexto isolado do Chromium (sem sessão persistida).
 
 Uso: python scripts/test_browser.py --url http://127.0.0.1:8501
