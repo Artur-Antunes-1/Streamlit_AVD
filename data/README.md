@@ -3,7 +3,7 @@
 Fonte: [Messy Food Waste Prediction Dataset, Kaggle](https://www.kaggle.com/competitions/messy-food-waste-prediction-dataset/data).
 
 - `train.csv`: 911 registros × 12 colunas, extraídos do CSV incorporado no notebook enviado. O app lê esse arquivo local; não precisa de conta ou chave do Kaggle.
-- `eda_tratada.csv`: exportação do dataframe tratado da EDA, para auditoria. A seção 14 acrescentada ao notebook permite salvar novamente os dois arquivos. O app normaliza o original em `analytics.py`.
+- `eda_tratada.csv`: exportação do dataframe tratado da EDA, para auditoria. A seção 13 do notebook permite salvar novamente os dois arquivos. O app normaliza o original em `analytics.py`.
 
 SHA-256 de `train.csv`: `c2bedb198bf40cc6793921cdfe0573589923996b3347b3361561b114214b9adf`.
 

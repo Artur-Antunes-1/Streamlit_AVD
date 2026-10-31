@@ -1,6 +1,6 @@
 # Relatório de verificação — Mesa Clara
 
-Verificação executada em **29/10/2026**, com Python 3.12, Streamlit 1.50.0, pandas 2.2.3 e Plotly 6.3.1. Este relatório descreve testes **locais**. O endereço do app publicado ainda não foi disponibilizado.
+Verificação local executada em **29/10/2026**, com Python 3.12, Streamlit 1.50.0, pandas 2.2.3 e Plotly 6.3.1. A tentativa de acesso à publicação em **31/10/2026** está registrada separadamente abaixo.
 
 ## Fluxo verificado
 
@@ -37,11 +37,27 @@ Capturas reais do teste local:
 - [Gestão — gráficos](dashboard2_graficos.png)
 - [Gestão — tela estreita](dashboard2_mobile.png)
 
+## Acesso à publicação — 31/10/2026
+
+Endereço informado pelo autor: <https://arturantunes.streamlit.app/>. O link foi incluído no README.
+
+O Chromium foi aberto em contexto isolado, sem cookies ou autenticação. O endereço redirecionou para `https://share.streamlit.io/app/arturantunes/`, com título **Not found · Streamlit**, e exibiu:
+
+```text
+You do not have access to this app or it does not exist
+Please sign in to continue.
+```
+
+Essa resposta impede confirmar os dashboards e os widgets no endereço publicado. O status HTTP 200 da página de acesso não comprova carregamento do app. O aviso pode decorrer de acesso privado ou de endereço indisponível; não comprova erro no código ou no deploy.
+
+Evidências: [captura do acesso sem login](publicacao-acesso.png) e [resultado estruturado](resultado-publicacao.json).
+
+Para liberar acesso sem alterar a visibilidade do repositório: no painel do Streamlit, abrir **⋮ → Settings → Sharing → Who can view this app → This app is public and searchable**. O proprietário também pode abrir o app e usar **Share → Make this app public**, se essa opção estiver disponível. Depois, repetir o teste em sessão anônima.
+
 ## Pendências externas
 
 - O repositório de destino é [Artur-Antunes-1/Streamlit_AVD](https://github.com/Artur-Antunes-1/Streamlit_AVD), **privado por solicitação do autor**. A entrega acadêmica pede visibilidade pública.
-- Publicar no Streamlit Community Cloud, com Python 3.12, branch `main` e `app.py`.
-- Adicionar o endereço real do app no README.
-- Repetir todos os testes no endereço publicado em janela anônima. O teste automatizado aceita `--url` com esse endereço.
+- Confirmar o endereço e liberar o acesso público ao app no Streamlit Community Cloud.
+- Repetir os testes dos dashboards e widgets no endereço publicado em sessão anônima. O teste automatizado aceita `--url https://arturantunes.streamlit.app/`.
 
-Nenhum teste local foi apresentado como evidência de publicação. A configuração do provedor, o acesso público e os logs da versão publicada ainda precisam ser conferidos após o deploy.
+Os testes locais não foram apresentados como evidência de funcionamento público. A configuração do provedor e os logs da versão publicada não estavam disponíveis nesta verificação.

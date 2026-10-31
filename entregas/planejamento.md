@@ -55,5 +55,5 @@ Não se pressupõe que cada linha corresponda a uma cozinha distinta, que a cole
 - Um mapa de calor e um histograma por quantitativa selecionada no laboratório.
 - Cinco métricas e pelo menos três visuais de gestão.
 - Tratamento explícito de recorte vazio, poucas observações e denominadores inválidos.
-- Repositório com notebook, `app.py`, `entregas/` e `prompts/`.
+- Repositório com notebook, `app.py` e `entregas/`.
 - Link real do app publicado no README e teste em janela anônima após a publicação. O resultado desse teste deve ser registrado separadamente, sem confundir teste local com teste de publicação.
